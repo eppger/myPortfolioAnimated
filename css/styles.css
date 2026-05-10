@@ -1,0 +1,828 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* =====================
+   DESIGN TOKENS
+===================== */
+:root {
+    --primary-color-text: #858383;
+    --primary-color-headlines: #FF9BCF;
+    --primary-color-buttons: #FCFFC8;
+    --primary-color-background: #ffffff;
+    --primary-color-text-dark: #4a4a4a;
+    --font-main: "Montserrat", sans-serif;
+}
+
+/* =====================
+   RESET & BASE
+===================== */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--primary-color-text);
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: var(--font-main);
+}
+
+/* =====================
+   REUSABLE COMPONENTS
+===================== */
+.container {
+    width: 100%;
+    background-color: var(--primary-color-background);
+}
+
+hr {
+    width: 100px;
+    height: 6px;
+    background-color: var(--primary-color-headlines);
+    border-radius: 4px;
+    border: none;
+    margin: 0 auto 10px;
+}
+
+.headline {
+    margin-bottom: 4px;
+}
+
+.headline h3 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--primary-color-headlines);
+    margin: 0;
+    text-align: center;
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+.menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.page-menu {
+    justify-self: end;
+}
+
+.logo-span {
+    display: inline-block;
+    font-family: var(--font-main);
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--primary-color-headlines);
+    letter-spacing: -0.5px;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 44px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: 2px solid var(--primary-color-headlines);
+    border-radius: 8px;
+    background-color: var(--primary-color-buttons);
+    margin: 8px;
+}
+
+.line {
+    width: 24px;
+    height: 3px;
+    background-color: var(--primary-color-headlines);
+    border-radius: 4px;
+}
+
+.menu-list {
+    display: none;
+}
+
+/* =====================
+   HERO
+===================== */
+.profile {
+    text-align: center;
+}
+
+.profile-image img {
+    display: inline-block;
+    width: 300px;
+    height: 190px;
+    border-radius: 16px;
+    object-fit: cover;
+    margin: 16px;
+}
+
+.profile-learn-more {
+    display: none;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.my-works,
+.my-clients,
+.contact {
+    padding: 32px 16px 0;
+}
+
+.my-works-intro,
+.my-clients-intro {
+    display: none;
+}
+
+.my-works-intro p,
+.my-clients-intro p,
+.contact-intro p {
+    font-size: 15px;
+    color: var(--primary-color-text);
+    margin: 0;
+}
+
+.frame {
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.frame img {
+    display: inline-block;
+    width: 92%;
+    max-width: 340px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.gallery {
+    display: none;
+}
+
+/* =====================
+   CLIENT CARDS
+===================== */
+.card {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid rgba(174, 174, 178, 0.4);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.28;
+}
+
+.card-text-content {
+    text-align: start;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+.card h4 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 8px 0;
+    color: var(--primary-color-text-dark);
+}
+
+.card span {
+    display: inline-block;
+    color: #ffffff;
+    background-color: var(--primary-color-headlines);
+    padding: 3px 20px;
+    margin: 6px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.card p {
+    margin: 8px 0 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* =====================
+   CONTACT
+===================== */
+.contact {
+    text-align: center;
+}
+
+.contact-intro {
+    display: none;
+}
+
+.btn-contact button {
+    border: 2px solid var(--primary-color-headlines);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background-color: var(--primary-color-buttons);
+    padding: 12px 32px;
+    color: var(--primary-color-headlines);
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.contact-form { display: none; }
+.contact-details { display: none; }
+.contact-image { display: none; }
+#contact-me-headline { display: none; }
+
+/* =====================
+   SOCIAL MEDIA
+===================== */
+.social-media {
+    width: 100%;
+    text-align: center;
+    padding-top: 32px;
+}
+
+.social-media-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-media-icons ul li {
+    display: inline-block;
+    margin: 8px 12px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    text-align: center;
+    padding: 40px 0 24px;
+    font-size: 13px;
+    color: var(--primary-color-text);
+}
+
+
+/* =====================
+   SHARED: 600px+
+   Tablet ja Desktop
+===================== */
+@media (min-width: 600px) {
+
+    /* --- Navigation --- */
+    .hamburger { display: none; }
+
+    .menu {
+        grid-template-columns: auto 1fr;
+    }
+
+    .menu-list {
+        display: block;
+        text-align: end;
+    }
+
+    .menu-list ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color-text-dark);
+    }
+
+    .menu-list ul li {
+        display: inline-block;
+    }
+
+    /* --- Hero --- */
+    .profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        align-items: center;
+        text-align: start;
+    }
+
+    .profile-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-learn-more {
+        display: flex;
+        align-items: center;
+        padding: 0;
+    }
+
+    .profile-details span {
+        display: block;
+        font-family: var(--font-main);
+        font-weight: 700;
+        color: var(--primary-color-headlines);
+        line-height: 1.2;
+    }
+
+    .profile-details p {
+        display: block;
+        color: var(--primary-color-text);
+    }
+
+    .profile-details button {
+        display: inline-block;
+        background-color: var(--primary-color-buttons);
+        color: var(--primary-color-headlines);
+        font-family: var(--font-main);
+        font-weight: 600;
+        border: 2px solid var(--primary-color-headlines);
+        border-radius: 8px;
+    }
+
+    /* --- Sections --- */
+    hr {
+        margin: 0 0 10px 0;
+    }
+
+    .contact {
+        text-align: start;
+    }
+
+    .headline h3 {
+        text-align: start;
+    }
+
+    .my-works .frame { display: none; }
+    .btn-contact { display: none; }
+
+    .my-works-intro {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .my-clients-intro {
+        display: block;
+        margin-top: 8px;
+    }
+
+    /* --- Contact --- */
+    #contact-me-headline { display: block; }
+
+    .contact-intro {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .contact-form {
+        display: block;
+    }
+
+    .contact-form form {
+        text-align: start;
+        padding: 0;
+    }
+
+    label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--primary-color-text-dark);
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        background-color: var(--primary-color-buttons);
+        border: none;
+        outline: none;
+        font-family: var(--font-main);
+        border-radius: 4px;
+    }
+
+    .contact-form button {
+        background-color: var(--primary-color-headlines);
+        color: #ffffff;
+        font-family: var(--font-main);
+        font-weight: 600;
+        font-size: 15px;
+        border: none;
+        border-radius: 6px;
+        margin: 0;
+        text-transform: none;
+    }
+
+    .contact-details {
+        display: block;
+    }
+
+    .contact-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 15px;
+        color: var(--primary-color-text-dark);
+    }
+
+    .contact-details ul li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* --- Social --- */
+    .social-media {
+        text-align: start;
+    }
+
+    .social-media-icons ul li {
+        margin: 0 16px 0 0;
+    }
+}
+
+
+/* =====================
+   TABLET: 600px–1024px
+===================== */
+@media (min-width: 600px) and (max-width: 1024px) {
+
+    /* --- Navigation --- */
+    .menu { padding: 12px 32px; }
+
+    .logo-span { font-size: 36px; }
+
+    .menu-list ul { letter-spacing: 0.8px; }
+
+    .menu-list ul li { margin-left: 24px; }
+
+    /* --- Hero --- */
+    .profile {
+        padding: 32px;
+        gap: 32px;
+    }
+
+    .profile-image img {
+        width: 100%;
+        max-width: 260px;
+        height: 310px;
+        margin: 0;
+        border-radius: 12px;
+    }
+
+    .profile-details span {
+        font-size: 30px;
+        margin-bottom: 14px;
+    }
+
+    .profile-details p {
+        font-size: 14px;
+        margin: 0 0 20px 0;
+        line-height: 1.65;
+    }
+
+    .profile-details button {
+        font-size: 14px;
+        padding: 11px 28px;
+    }
+
+    /* --- Sections --- */
+    .my-works,
+    .my-clients,
+    .contact {
+        padding: 40px 32px 0;
+    }
+
+    .headline h3 { font-size: 34px; }
+
+    /* --- Gallery --- */
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        display: block;
+    }
+
+    /* --- Cards --- */
+    .my-clients { margin-top: 0; }
+
+    .card {
+        grid-template-columns: 100px 1fr;
+        padding: 24px 28px;
+        margin: 20px 0;
+    }
+
+    .card-image img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .card h4 { font-size: 17px; }
+    .card p { font-size: 14px; }
+
+    /* --- Contact --- */
+    label { margin-bottom: 4px; }
+
+    input, textarea {
+        padding: 10px 12px;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    input { height: 42px; }
+
+    .contact-form {
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    .contact-form button { padding: 12px 32px; }
+
+    .contact-details { margin-top: 24px; }
+
+    .contact-details ul li { margin-bottom: 12px; }
+}
+
+
+/* =====================
+   DESKTOP: 1025px+
+===================== */
+@media (min-width: 1025px) {
+
+    /* --- Navigation --- */
+    .menu { padding: 16px 48px; }
+
+    .logo-span { font-size: 40px; }
+
+    .menu-list ul { letter-spacing: 1.2px; }
+
+    .menu-list ul li { margin-left: 36px; }
+
+    /* --- Hero --- */
+    .profile {
+        padding: 48px;
+        gap: 48px;
+    }
+
+    .profile-image img {
+        width: 100%;
+        max-width: 420px;
+        height: 500px;
+        margin: 0;
+        border-radius: 16px;
+    }
+
+    .profile-details {
+        max-width: 560px;
+    }
+
+    .profile-details span {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .profile-details p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 0 0 28px 0;
+    }
+
+    .profile-details button {
+        font-size: 15px;
+        padding: 14px 36px;
+    }
+
+    /* --- Sections --- */
+    .my-works,
+    .my-clients,
+    .contact {
+        padding: 56px 48px 0;
+    }
+
+    hr {
+        width: 80px;
+        margin: 0 0 12px 0;
+    }
+
+    .headline h3 { font-size: 40px; }
+
+    /* --- Gallery --- */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+    }
+
+    .my-works-intro { max-width: 720px; }
+    .my-clients-intro { max-width: 720px; }
+
+    /* --- Cards --- */
+    .card {
+        grid-template-columns: 160px 1fr;
+        padding: 36px 40px;
+        gap: 32px;
+        margin: 24px 0;
+    }
+
+    .card-image img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card h4 { font-size: 20px; }
+    .card p { font-size: 15px; }
+
+    .card-text-content { padding-right: 40px; }
+
+    .role-description {
+        display: inline-block;
+        margin: 0 8px 8px 0;
+    }
+
+    /* --- Contact --- */
+    .contact-intro { max-width: 600px; }
+
+    .get-in-touch {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        margin-top: 32px;
+    }
+
+    .contact-form {
+        grid-column: 1/2;
+        grid-row: 1/4;
+        padding-right: 48px;
+    }
+
+    label { margin-bottom: 6px; }
+
+    input, textarea {
+        padding: 10px 14px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    input { height: 44px; }
+
+    .contact-form button { padding: 13px 36px; }
+
+    .contact-details {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        padding-bottom: 16px;
+    }
+
+    .contact-details ul li { margin-bottom: 16px; }
+
+    .contact-image {
+        display: block;
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .contact-image img {
+        width: 100%;
+        max-height: 260px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .social-media {
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+
+    .social-media h3 {
+        font-size: 24px;
+        margin: 0 0 16px 0;
+    }
+}
+
+
+/* =====================
+   ANIMATIONS & INTERACTIONS
+===================== */
+
+/* --- Hero fade-in --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-details span {
+    animation: fadeInUp 0.7s ease both;
+    animation-delay: 0.1s;
+}
+
+.profile-details p {
+    animation: fadeInUp 0.7s ease both;
+    animation-delay: 0.35s;
+}
+
+.profile-details button {
+    animation: fadeInUp 0.7s ease both;
+    animation-delay: 0.6s;
+}
+
+/* --- Button hover --- */
+.profile-details button,
+.btn-contact button {
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.profile-details button:hover,
+.btn-contact button:hover {
+    background-color: var(--primary-color-headlines);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.contact-form button {
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.contact-form button:hover {
+    background-color: #e07db8;
+    transform: translateY(-2px);
+}
+
+/* --- Form focus --- */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 2px var(--primary-color-headlines);
+}
+
+/* --- Gallery image hover --- */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-item img {
+    transition: transform 0.35s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+/* --- Menu item hover --- */
+.menu-list ul li {
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.menu-list ul li:hover {
+    transform: scale(1.15);
+}
