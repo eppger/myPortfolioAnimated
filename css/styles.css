@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
-/* =====================
-   DESIGN TOKENS
-===================== */
+/* Peamised värvid */
+
 :root {
     --primary-color-text: #858383;
     --primary-color-headlines: #FF9BCF;
@@ -12,9 +11,8 @@
     --font-main: "Montserrat", sans-serif;
 }
 
-/* =====================
-   RESET & BASE
-===================== */
+/* Kodulehe baas */
+
 body {
     margin: 0;
     padding: 0;
@@ -23,6 +21,7 @@ body {
     font-size: 15px;
     line-height: 1.65;
     color: var(--primary-color-text);
+    overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -34,9 +33,8 @@ button {
     font-family: var(--font-main);
 }
 
-/* =====================
-   REUSABLE COMPONENTS
-===================== */
+/* Komponendid */
+
 .container {
     width: 100%;
     background-color: var(--primary-color-background);
@@ -64,9 +62,8 @@ hr {
     text-align: center;
 }
 
-/* =====================
-   NAVIGATION
-===================== */
+/* Menüü navigatsioon */
+
 .menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -113,9 +110,70 @@ hr {
     display: none;
 }
 
-/* =====================
-   HERO
-===================== */
+.menu-panel {
+    position: fixed;
+    right: -264px;
+    top: 0;
+    width: 264px;
+    height: 100%;
+    background-color: var(--primary-color-buttons);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 32px;
+    box-sizing: border-box;
+    transition: right 1s ease-in-out;
+    z-index: 1000;
+}
+
+.menu-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-panel ul li {
+    margin-bottom: 32px;
+}
+
+.menu-panel ul li:has(> img) {
+    display: inline-block;
+    margin: 10px;
+    padding-top: 15px;
+}
+
+.menu-panel ul li > img {
+    width: 35px;
+    height: 35px;
+}
+
+.menu-panel ul li a {
+    color: var(--primary-color-text-dark);
+    text-decoration: none;
+}
+
+.menu-panel.active {
+    right: 0;
+}
+
+.btn-close-menu {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: 2px solid var(--primary-color-headlines);
+    color: var(--primary-color-headlines);
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero sektsioon */
+
 .profile {
     text-align: center;
 }
@@ -133,9 +191,8 @@ hr {
     display: none;
 }
 
-/* =====================
-   SECTIONS
-===================== */
+/* My works sektsioon */
+
 .my-works,
 .my-clients,
 .contact {
@@ -174,9 +231,8 @@ hr {
     display: none;
 }
 
-/* =====================
-   CLIENT CARDS
-===================== */
+/* Kliendi kaart */
+
 .card {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -235,15 +291,15 @@ hr {
     line-height: 1.6;
 }
 
-/* =====================
-   CONTACT
-===================== */
+/* Kontakti väli */
+
 .contact {
     text-align: center;
 }
 
 .contact-intro {
-    display: none;
+    display: block;
+    margin-top: 8px;
 }
 
 .btn-contact button {
@@ -258,14 +314,104 @@ hr {
     border-radius: 8px;
 }
 
-.contact-form { display: none; }
-.contact-details { display: none; }
+.contact-form {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color-buttons);
+    padding: 32px 24px;
+    box-sizing: border-box;
+    transition: right 1s ease-in-out;
+    overflow-y: auto;
+    z-index: 200;
+    text-align: left;
+}
+
+.contact-form.active {
+    right: 0;
+}
+
+.btn-back-form {
+    background: none;
+    border: 2px solid var(--primary-color-headlines);
+    color: var(--primary-color-headlines);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color-text-dark);
+    margin-bottom: 4px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid rgba(174, 174, 178, 0.4);
+    outline: none;
+    font-family: var(--font-main);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.contact-form input { height: 42px; }
+
+.contact-form .btn-form button {
+    background-color: var(--primary-color-headlines);
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    width: 100%;
+}
+
+.contact-details {
+    display: block;
+    margin-top: 16px;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    color: var(--primary-color-text-dark);
+}
+
+.contact-details ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.contact-details ul li img {
+    width: 18px;
+    height: 18px;
+}
 .contact-image { display: none; }
 #contact-me-headline { display: none; }
 
-/* =====================
-   SOCIAL MEDIA
-===================== */
+/* Sotsiaalmeedia */
+
 .social-media {
     width: 100%;
     text-align: center;
@@ -283,9 +429,8 @@ hr {
     margin: 8px 12px;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* Jaluse sektsioon */
+
 footer {
     text-align: center;
     padding: 40px 0 24px;
@@ -294,10 +439,8 @@ footer {
 }
 
 
-/* =====================
-   SHARED: 600px+
-   Tablet ja Desktop
-===================== */
+/* 600px+ Tablet ja Desktop */
+
 @media (min-width: 600px) {
 
     /* --- Navigation --- */
@@ -368,7 +511,8 @@ footer {
         border-radius: 8px;
     }
 
-    /* --- Sections --- */
+    /* Sektsiooni */
+
     hr {
         margin: 0 0 10px 0;
     }
@@ -394,7 +538,8 @@ footer {
         margin-top: 8px;
     }
 
-    /* --- Contact --- */
+    /* Kontakti ala */
+
     #contact-me-headline { display: block; }
 
     .contact-intro {
@@ -404,6 +549,19 @@ footer {
 
     .contact-form {
         display: block;
+        position: static;
+        right: auto;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        transition: none;
+        overflow-y: visible;
+        z-index: auto;
+    }
+
+    .btn-back-form {
+        display: none;
     }
 
     .contact-form form {
@@ -455,10 +613,11 @@ footer {
     .contact-details ul li {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         gap: 10px;
     }
 
-    /* --- Social --- */
+    /* Sotsiaalmeedia */
     .social-media {
         text-align: start;
     }
@@ -469,9 +628,8 @@ footer {
 }
 
 
-/* =====================
-   TABLET: 600px–1024px
-===================== */
+/* TABLET: 600px–1024px */
+
 @media (min-width: 600px) and (max-width: 1024px) {
 
     /* --- Navigation --- */
@@ -579,9 +737,8 @@ footer {
 }
 
 
-/* =====================
-   DESKTOP: 1025px+
-===================== */
+/* DESKTOP: 1025px+ */
+
 @media (min-width: 1025px) {
 
     /* --- Navigation --- */
@@ -744,9 +901,7 @@ footer {
 }
 
 
-/* =====================
-   ANIMATIONS & INTERACTIONS
-===================== */
+/* Animatsioonid */
 
 /* --- Hero fade-in --- */
 @keyframes fadeInUp {
